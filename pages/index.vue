@@ -3,12 +3,13 @@
     <div>
       <Logo />
       <h1 class="title">jp-base</h1>
-      <p>{{ response }}</p>
+      <p>{{ lists }}</p>
       <div v-for="(list, index) in lists">
         <div class="fixAreaDetail__inner">
-          <h2 class="fixAreaDetail__title">{{ list.name }}</h2>
-          <p class="fixAreaDetail__title">{{ list.id }}</p>
-          <input v-model="list.id" />
+          <h2 class="fixAreaDetail__title">
+            {{ list }}
+          </h2>
+          <!-- <p class="fixAreaDetail__title">{{ list.id }}</p> -->
           <!-- <p class="fixAreaDetail__year">{{ list.acf.top_itemYear }}</p>
             <p class="fixAreaDetail__position">
               {{ list.acf.top_itemPosition }}
@@ -42,20 +43,23 @@ export default {
   async asyncData({ $axios }) {
     const myClientId = process.env.MY_CLIENT_ID;
     const myClientPass = process.env.MY_CLIENT_PASS;
-    const baseUrl = "https://api.foursquare.com/v2/venues/search";
+    // const baseUrl = "https://api.foursquare.com/v2/venues/search";
+    const baseUrl = "https://api.foursquare.com/v2/venues/explore";
     const locate = "&locate=ja";
     const version = "&v=20210530";
     const nearTokyo = "near=tokyo";
     const mySearchBaseUrl = `${baseUrl}?${nearTokyo}${myClientId}${myClientPass}${locate}${version}`;
-    const urlEntertainment = `${mySearchBaseUrl}&categoryId=4d4b7104d754a06370d81259`;
-    const response = await $axios.$get(urlEntertainment);
+    const urlEntertainment = `${mySearchBaseUrl}`;
+    const res = await $axios.$get(urlEntertainment);
+    // console.log(res.response.groups);
     // const venueId = response.venues.id;
-    const test = response["response"]["venues"][0]["id"];
+    // const test = response["response"]["venues"][0]["id"];
 
     // const images = `${baseUrl}${venueId}/photos/?${myClientId}${myClientPass}${locate}${version}`;
     // console.log(images);
     return {
-      lists: response.response.venues,
+      // lists: response.response.venues,
+      lists: res.response,
     };
   },
 };
