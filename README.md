@@ -1,8 +1,11 @@
 ![トップページ確認用](https://user-images.githubusercontent.com/71650013/120915885-40adb800-c6e1-11eb-81ae-5be31738c111.jpg)
 
+## 注意点
+API制限により、スポット詳細ページ（/city/_id）において、APIが取得できない場合があります。
 
 ## アプリケーション名
 ### GO JAPAN
+### URL： https://gojapan.herokuapp.com/
 
 ## 使用技術（開発環境）
 - Nuxt.js / Vue.js
