@@ -162,6 +162,7 @@ export default {
       font-size: 4rem;
       white-space: normal;
       word-break: break-all;
+      text-align: center;
     }
   }
 }
