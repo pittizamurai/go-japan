@@ -1,0 +1,31 @@
+// original color
+$white: #fff;
+$black01: #101010;
+$red01: #f13c33;
+$lightGray: #e5e5e5;
+$red02: #ff3333;
+$blue01: #3333ff;
+
+//original
+
+$gray: #808080;
+
+// color setting
+
+// breakpoints・width
+$contentPaddingPC: 40px;
+$contentCenter: 980px;
+$contentCenterWithPadding: $contentCenter + $contentPaddingPC * 2;
+$windowPC: 769px;
+$windowSP: 768px;
+$contentPaddingSP: 15px;
+
+// header height
+$headerHeightPC: 100px;
+$headerHeightSP: 50px;
+$footerHeightPC: 320px;
+$footerHeightSP: 50px;
+
+// wpAdminBar
+$wpAdminBarPC: 32px;
+$wpAdminBarSP: 46px;

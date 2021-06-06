@@ -1,10 +1,11 @@
 require("dotenv").config();
 const { MY_CLIENT_ID } = process.env;
 const { MY_CLIENT_PASS } = process.env;
+const { MY_API_KEY_WEATHER } = process.env;
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "jp-base",
+    title: "go-japan",
     htmlAttrs: {
       lang: "en",
     },
@@ -20,13 +21,31 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    { src: "~/plugins/axios", ssr: false },
+    { src: "~/plugins/vue-masonry", ssr: false },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: [
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          Oswald: true,
+          Roboto: true,
+          RopaSans: true,
+          Abel: true,
+        },
+        display: "block",
+        download: true,
+        inject: true,
+      },
+    ],
+  ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios"],
@@ -36,5 +55,9 @@ export default {
   env: {
     MY_CLIENT_ID,
     MY_CLIENT_PASS,
+    MY_API_KEY_WEATHER,
+  },
+  router: {
+    base: "/",
   },
 };
