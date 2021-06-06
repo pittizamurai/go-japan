@@ -36,7 +36,7 @@
               http://www.kensetsu.metro.tokyo.jp
             </p>
           </a> -->
-          <a class="detailSec01__informationAreaUrlLink">
+          <a :href="resDetail.url" class="detailSec01__informationAreaUrlLink">
             <p class="detailSec01__informationAreaUrl"></p>
             {{ resDetail.url }}</a
           >

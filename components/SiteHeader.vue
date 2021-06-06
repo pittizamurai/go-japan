@@ -6,7 +6,7 @@
     <div class="siteHeader" :class="{ '-fixed': scrollY > 50 }">
       <div class="siteHeader__inner">
         <h1 class="siteHeader__logoArea">
-          <a href="#">
+          <a href="/">
             <img
               class="siteHeader__logo"
               src="~/assets/images/common/logo.png"
