@@ -117,7 +117,7 @@ $radius: 0.5rem;
     color: $white;
     font-size: 1.6rem;
     text-align: center;
-    word-break: keep-all;
+    word-break: break-word;
     position: absolute;
     left: 50%;
     top: 60%;
