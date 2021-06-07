@@ -55,6 +55,7 @@ export default {
     @include u-flex($fd: row, $fw: nowrap, $jc: flex-start, $ai: stretch);
     margin-top: 50px;
     @include u-mqMax {
+      width: 100%;
       justify-content: flex-start;
     }
   }

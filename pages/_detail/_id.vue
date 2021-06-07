@@ -116,13 +116,13 @@ export default {
     padding: 30px;
   }
   &__inner {
-    @include u-flex($fd: row, $fw: wrap, $jc: flex-start, $ai: stretch);
+    @include u-flex($fd: row, $fw: nowrap, $jc: flex-start, $ai: stretch);
     @include u-mqMax {
       flex-direction: column;
     }
   }
   &__thumbArea {
-    width: 40%;
+    // width: 40%;
     @include u-mqMax {
       width: 100%;
     }
@@ -173,14 +173,13 @@ export default {
     }
   }
   &__informationAreaUrlLink {
+    font-size: 1.6rem;
     display: block;
     margin-top: 20px;
+    word-break: break-all;
     @include u-mqMax {
       margin-top: 10px;
     }
-  }
-  &__informationAreaUrlLink {
-    font-size: 1.6rem;
   }
 }
 .detailSec02 {

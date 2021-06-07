@@ -33,7 +33,7 @@ export default {
 
     @include u-mqMax {
       overflow-x: scroll;
-      margin: 0 10%;
+      margin: 0 5%;
     }
   }
   &__navListItem {

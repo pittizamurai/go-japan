@@ -26,6 +26,7 @@
         autoplay
         loop
         muted
+        playsinline
       ></video>
       <p class="top__title">
         FIND <br class="u-spDb" />YOUR <br class="u-spDb" />JOURNEY
@@ -90,7 +91,6 @@ export default {
     @include u-flex($fd: row, $fw: nowrap, $jc: space-between, $ai: center);
     padding: 28px 4.7619% 24px;
     @include u-mqMax {
-      width: 100%;
       padding: 5%;
     }
   }
