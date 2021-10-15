@@ -10,7 +10,7 @@
             <img
               class="siteHeader__logo"
               src="~/assets/images/common/logo.png"
-              alt=""
+              alt="go japan"
             />
           </a>
         </h1>
