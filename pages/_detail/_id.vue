@@ -5,42 +5,27 @@
         <div class="detailSec01__thumbArea">
           <figure class="detailSec01__thumb">
             <img :src="BestPhotoUrl" alt="" />
-            <!-- <img
-              src="https://fastly.4sqi.net/img/general/original/36380081_Kee1f9pHRJU_Sepu7ARYgR_afLlZg7klsaSF3JtPtQA.jpg"
-              alt=""
-            /> -->
           </figure>
         </div>
         <div class="detailSec01__informationArea">
           <p class="detailSec01__informationAreaTitle">{{ resDetail.name }}</p>
-          <!-- <p class="detailSec01__informationAreaTitle">上野恩賜公園</p> -->
-          <!-- <p class="detailSec01__informationAreaGenre">公園</p> -->
           <p class="detailSec01__informationAreaGenre">
             {{ resDetail.categories[0].name }}
           </p>
-          <!-- <p class="detailSec01__informationAreaAdress01">上野公園/池之端3</p> -->
           <p class="detailSec01__informationAreaAdress01">
             {{ resDetail.location.address }}
           </p>
-          <!-- <p class="detailSec01__informationAreaAdress02">東京都</p> -->
           <p class="detailSec01__informationAreaAdress02">
             {{ resDetail.location.state }}
           </p>
 
-          <!-- <p class="detailSec01__informationAreaContact">03-3828-5644</p> -->
           <p class="detailSec01__informationAreaContact">
             {{ resDetail.contact.formattedPhone }}
           </p>
-          <!-- <a class="detailSec01__informationAreaUrlLink" href="#"
-            ><p class="detailSec01__informationAreaUrl">
-              http://www.kensetsu.metro.tokyo.jp
-            </p>
-          </a> -->
           <a :href="resDetail.url" class="detailSec01__informationAreaUrlLink">
             <p class="detailSec01__informationAreaUrl"></p>
             {{ resDetail.url }}</a
           >
-          <!-- <p>{{ resDetail }}</p> -->
         </div>
       </div>
     </div>
@@ -61,7 +46,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import NoSSR from "vue-no-ssr";
 export default {
   components: {
@@ -93,9 +77,8 @@ export default {
 
     return {
       resDetail: resDetail02,
-      BestPhotoUrl: BestPhotoUrl,
-      // resDetailPhoto: resDetailPhoto,
-      photoGalleryLists: photoGalleryLists,
+      BestPhotoUrl,
+      photoGalleryLists,
     };
   },
   mounted() {
@@ -201,8 +184,6 @@ export default {
   &__list {
     margin: auto;
     // @include u-flex($fd: row, $fw: wrap, $jc: flex-start, $ai: stretch);
-  }
-  &__listItem {
   }
 }
 .item {

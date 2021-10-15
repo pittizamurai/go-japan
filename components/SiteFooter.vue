@@ -1,7 +1,4 @@
 <template>
-  <!-- <figure>
-    <img src="~/assets/images/common/top_kv.jpg" alt="" />
-  </figure> -->
   <div>
     <div class="siteFooter">
       <div class="siteFooter__inner">
@@ -38,8 +35,6 @@ export default {
   width: 100%;
   margin-top: 50px;
 
-  &__logoArea {
-  }
   &__logo {
     width: 140px;
     display: block;

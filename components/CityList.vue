@@ -2,7 +2,7 @@
   <ul class="top__cardlist">
     <li
       class="top__cardlistitem"
-      v-for="(list, index) in listsCity"
+      v-for="list in listsCity"
       :key="list.item"
     >
       <nuxt-link

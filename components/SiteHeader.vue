@@ -1,7 +1,4 @@
 <template>
-  <!-- <figure>
-    <img src="~/assets/images/common/top_kv.jpg" alt="" />
-  </figure> -->
   <div>
     <div class="siteHeader" :class="{ '-fixed': scrollY > 50 }">
       <div class="siteHeader__inner">
@@ -33,7 +30,6 @@
       </p>
       <div class="top__subTitleArea">
         <p class="top__subTitle">{{ $route.params.city }}</p>
-        <!-- <p class="top__subTitle">{{ $route.params.id }}</p> -->
       </div>
     </div>
   </div>

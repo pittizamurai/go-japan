@@ -1,7 +1,6 @@
 <template>
   <div class="container city">
     <div>
-      <!-- <h2 class="citySec01__areaTitle">{{ this.$route.params.city }}</h2> -->
       <TopCityLink :parent="parent" />
       <section class="weatherSec">
         <h3 class="lowerTitle">8 DAY FORECAST</h3>
@@ -11,7 +10,6 @@
             :key="list.item"
             class="weatherSec__listItem"
           >
-            <!-- <li>天気：{{ list.weather[0].main }}</li> -->
             <div class="weatherSec__listItemDate" ref="date">{{ list.dt }}</div>
             <div class="weatherSec__listItemThumb">
               <img
@@ -36,7 +34,6 @@
         </ul>
       </section>
       <br />
-      <!-- <img v-bind:src="`${bestPhotoUrl1}original${bestPhotoUrl2}`" /> -->
       <hr class="border" />
       <div class="detaileSec">
         <h3 class="lowerTitle">PICK UP</h3>
@@ -72,13 +69,6 @@ export default {
         stringDate.innerHTML = mathDate;
       });
     },
-    // cityLocation: function(){
-    //   let city = cityName03;
-    //   if(city === tokyo){
-    //     let cityLocated = "lat=35.6804&lon=139.769017";
-    //   };
-    //   console.log(cityLocated);
-    // },
   },
 
   mounted() {
@@ -91,58 +81,44 @@ export default {
   },
 
   async asyncData(context) {
-    // console.log("$axios", $axios);
+    //スポットリスト
     const myClientId = process.env.MY_CLIENT_ID;
     const myClientPass = process.env.MY_CLIENT_PASS;
     const baseUrl = "https://api.foursquare.com/v2/venues/";
     const exploreUrl = `${baseUrl}explore`;
-    const cityName03 = context.params.city;
+    const parent = context.params.city;
     const locate = "&locate=ja";
     const version = "&v=20210530";
     const sort = "&sortByPopularity=1";
     const limit = "&limit=30";
-    const mySearchBaseUrl = `${exploreUrl}?near=${cityName03}${sort}${limit}${myClientId}${myClientPass}${locate}${version}`;
+    const mySearchBaseUrl = `${exploreUrl}?near=${parent}${sort}${limit}${myClientId}${myClientPass}${locate}${version}`;
     const resCity = await axios.get(mySearchBaseUrl);
     const resCity02 = resCity.data;
-    const resCityData = resCity02["response"]["groups"][0]["items"];
-    const cityItemId = resCityData[0].venue.id;
-    // const detailUrl = `${baseUrl}${cityItemId}/?${myClientId}${myClientPass}${locate}${version}`;
-    // const resDetail = await axios.get(detailUrl);
-    // const resDetailData = resDetail.data;
-    // const bestPhoto = resDetailData.response.venue.bestPhoto;
-    // const bestPhotoUrl1 = bestPhoto.prefix;
-    // const bestPhotoUrl2 = bestPhoto.suffix;
-    // console.log(bestPhotoUrl2);
-
+    const listsCity = resCity02["response"]["groups"][0]["items"];
     //天気
-    // this.cityLocation();
     const myApiKeyWeather = process.env.MY_API_KEY_WEATHER;
     let city = "null";
-    if (cityName03 === "tokyo") {
+    if (parent === "tokyo") {
       city = "lat=35.6804&lon=139.769017";
-    } else if (cityName03 === "yokohama") {
+    } else if (parent === "yokohama") {
       city = "lat=35.4437&lon=139.638";
-    } else if (cityName03 === "kyoto") {
+    } else if (parent === "kyoto") {
       city = "lat=35.0116&lon=135.768";
-    } else if (cityName03 === "osaka") {
+    } else if (parent === "osaka") {
       city = "lat=34.6937&lon=135.5021";
-    } else if (cityName03 === "sapporo") {
+    } else if (parent === "sapporo") {
       city = "lat=43.06417&lon=141.34694";
-    } else if (cityName03 === "nagoya") {
+    } else if (parent === "nagoya") {
       city = "lat=35.1814&lon=136.9063";
     }
     const itemWeather = await axios.get(
       `https://api.openweathermap.org/data/2.5/onecall?${city}&exclude=current,minutely,alerts&appid=${myApiKeyWeather}`
     );
-
     const weatherList = itemWeather.data.daily;
     return {
-      listsCity: resCityData,
-      parent: cityName03,
-      weatherList: weatherList,
-
-      // bestPhotoUrl1: bestPhotoUrl1,
-      // bestPhotoUrl2: bestPhotoUrl2,
+      listsCity,
+      parent,
+      weatherList,
     };
   },
 };

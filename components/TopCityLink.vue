@@ -12,7 +12,6 @@
   </li>
 </template>
 <script>
-// import axios from "axios";
 export default {
   data() {
     return {};
@@ -20,13 +19,11 @@ export default {
   props: {
     parent: {
       type: String,
-      required: false,
-      default: "",
+      required: true,
     },
     slogan: {
       type: String,
-      required: false,
-      default: "",
+      required: true,
     },
   },
 };
