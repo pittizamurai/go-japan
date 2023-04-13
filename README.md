@@ -11,7 +11,7 @@ API制限により、スポット詳細ページ（/city/_id）において、AP
 
 ## アプリケーション名
 ### GO JAPAN
-### URL： https://gojapan.herokuapp.com/
+### URL： ~~https://gojapan.herokuapp.com/~~ 現在停止中
 
 ## 使用技術（開発環境）
 - Nuxt.js / Vue.js
